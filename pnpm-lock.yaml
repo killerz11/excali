@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
     devDependencies:
       prettier:
         specifier: ^3.7.4
@@ -19,10 +23,19 @@ importers:
         version: 5.9.2
 
   apps/http-backend:
-    dependencies:
+    devDependencies:
+      '@repo/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@repo/commonbackend':
+        specifier: workspace:*
+        version: link:../../packages/commonbackend
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
+      '@types/express':
+        specifier: ^5.0.6
+        version: 5.0.6
       '@types/jsonwebtoken':
         specifier: ^9.0.10
         version: 9.0.10
@@ -32,10 +45,6 @@ importers:
       zod:
         specifier: ^4.4.3
         version: 4.4.3
-    devDependencies:
-      '@types/express':
-        specifier: ^5.0.6
-        version: 5.0.6
 
   apps/web:
     dependencies:
@@ -75,7 +84,10 @@ importers:
         version: 5.9.2
 
   apps/ws-backend:
-    dependencies:
+    devDependencies:
+      '@repo/commonbackend':
+        specifier: workspace:*
+        version: link:../../packages/commonbackend
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
@@ -88,6 +100,25 @@ importers:
       ws:
         specifier: ^8.20.1
         version: 8.20.1
+
+  packages/common:
+    dependencies:
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: 'workspace: *'
+        version: link:../typescript-config
+
+  packages/commonbackend:
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
 
   packages/eslint-config:
     devDependencies:

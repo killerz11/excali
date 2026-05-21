@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { signinSchema, signupSchema } from "../schemas/auth.schema";
+import { signinSchema, signupSchema } from "@repo/common/types";
 import { signintoken } from "../utils/jwt";
 
 export function signup(req: Request, res: Response) {
